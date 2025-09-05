@@ -1,5 +1,4 @@
-import React from 'react';
-import ThemeToggle from '../components/ThemeToggle'; 
+import ThemeToggle from "../components/ThemeToggle";
 
 const Settings = () => {
   return (

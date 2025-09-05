@@ -1,34 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
+import { createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 
 const initialProjects = [
   {
-    id: '1',
-    name: 'Project One',
-    description: 'Description for Project One',
+    id: "1",
+    name: "Project One",
+    description: "Description for Project One",
     tasks: [
-      { id: nanoid(), name: 'Task 1', description: 'Description for Task 1', state: 'todo' },
-      { id: nanoid(), name: 'Task 2', description: 'Description for Task 2', state: 'inProgress' }
-    ]
+      {
+        id: nanoid(),
+        name: "Task 1",
+        description: "Description for Task 1",
+        state: "todo",
+      },
+      {
+        id: nanoid(),
+        name: "Task 2",
+        description: "Description for Task 2",
+        state: "inProgress",
+      },
+    ],
   },
   {
-    id: '2',
-    name: 'Project Two',
-    description: 'Description for Project Two',
-    tasks: []
+    id: "2",
+    name: "Project Two",
+    description: "Description for Project Two",
+    tasks: [],
   },
   {
-    id: '3',
-    name: 'Project Three',
-    description: 'Description for Project Three',
+    id: "3",
+    name: "Project Three",
+    description: "Description for Project Three",
     tasks: [
-      { id: nanoid(), name: 'Task 3', description: 'Description for Task 3', state: 'completed' }
-    ]
-  }
+      {
+        id: nanoid(),
+        name: "Task 3",
+        description: "Description for Task 3",
+        state: "completed",
+      },
+    ],
+  },
 ];
 
 const projectsSlice = createSlice({
-  name: 'projects',
+  name: "projects",
   initialState: initialProjects,
   reducers: {
     addProject: (state, action) => {
@@ -47,9 +62,9 @@ const projectsSlice = createSlice({
       if (project) {
         const taskIndex = project.tasks.findIndex((task) => task.id === taskId);
         if (taskIndex !== -1) {
-          const [task] = project.tasks.splice(taskIndex, 1); 
-          task.state = newState; 
-          project.tasks.push(task); 
+          const [task] = project.tasks.splice(taskIndex, 1);
+          task.state = newState;
+          project.tasks.push(task);
         }
       }
     },
@@ -73,5 +88,11 @@ const projectsSlice = createSlice({
   },
 });
 
-export const { addProject, addTaskToProject, moveTask, removeTask ,updateTask} = projectsSlice.actions;
+export const {
+  addProject,
+  addTaskToProject,
+  moveTask,
+  removeTask,
+  updateTask,
+} = projectsSlice.actions;
 export default projectsSlice.reducer;

@@ -1,13 +1,21 @@
-import React from 'react';
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
 const TaskDistributionChart = ({ tasks }) => {
   const data = [
-    { name: 'To Do', value: tasks.filter(task => task.state === 'todo').length },
-    { name: 'In Progress', value: tasks.filter(task => task.state === 'inProgress').length },
-    { name: 'Completed', value: tasks.filter(task => task.state === 'completed').length },
+    {
+      name: "To Do",
+      value: tasks?.filter((task) => task?.state === "todo").length,
+    },
+    {
+      name: "In Progress",
+      value: tasks?.filter((task) => task?.state === "inProgress").length,
+    },
+    {
+      name: "Completed",
+      value: tasks?.filter((task) => task?.state === "completed").length,
+    },
   ];
 
   return (
